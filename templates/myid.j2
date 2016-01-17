@@ -1,1 +1,5 @@
-{{ zoo_id }}
+{% for slave in groups['zookeeper_hosts'] %}
+{% if ansible_hostname == slave %}
+{{loop.index}}
+{% endif %}
+{% endfor %}
