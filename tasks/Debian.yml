@@ -25,3 +25,6 @@
 - name: Start zookeeper service
   service: name=zookeeper state=started enabled=yes
   tags: deploy
+
+- name: Export zookeeper paths
+  copy: content="export PATH=$PATH:/usr/share/zookeeper/bin" dest="/etc/profile.d/zookeeper_path.sh" mode=744
