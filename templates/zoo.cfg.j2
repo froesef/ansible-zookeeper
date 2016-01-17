@@ -10,6 +10,6 @@ Also consider:
 server.{{server.id}}={{server.host}}:2888:3888
 #}
 
-{% for server in zookeeper_hosts %}
-server.{{loop.index}}={{server.host}}:2888:3888
+{% for slave in groups['zookeeper_hosts'] %}
+server.{{loop.index}}={{ slave }}:2888:3888
 {% endfor %}
